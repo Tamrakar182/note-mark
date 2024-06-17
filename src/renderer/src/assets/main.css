@@ -13,7 +13,7 @@
 
         @apply select-none;
 
-        @apply bg-black;
+        @apply bg-slate-900;
 
         @apply font-mono antialiased text-white;
 
