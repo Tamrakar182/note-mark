@@ -64,12 +64,14 @@ export const saveNoteAtom = atom(null, async (get, set, newContent: NoteContent)
   )
 })
 
-export const createEmptyNoteAtom = atom(null, (get, set) => {
+export const createEmptyNoteAtom = atom(null, async (get, set) => {
   const notes = get(notesAtom)
 
   if (!notes) return
 
-  const title = `Notes ${notes.length + 1}`
+  const title = await window.context.createNote()
+
+  if (!title) return
 
   const newNote: NoteInfo = {
     title,
